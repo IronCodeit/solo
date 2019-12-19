@@ -407,3 +407,68 @@ myButton.addEventListener('click', function () {
 
     nameInput.value = '';
 });
+
+//1 способ реал-ии слайдера
+const left = document.querySelector("#left");
+const right = document.querySelector("#right");
+const items = document.querySelector("#items");
+const computed = getComputedStyle(items);
+//console.log(computed.right);
+//getComputedStyle - переводит все в числа.
+
+right.addEventListener('click', function (event) {
+    event.preventDefault();
+    let currentRight = parseInt(computed.right);//Текущ. знач. css св-ва right прогоняем ч/з parseInt и получаем число.
+    if (!currentRight) {
+        currentRight = 0;
+    }
+    //!currentRight - проверка, не обязательная. Т.е. если в !currentRight что-то не похожее на число, то мы в currentRight записываем 0.
+    //В совр-х брауз-х можно обойтись и без проверки.
+    if (currentRight < 500) {
+        items.style.right = currentRight + 100 + "px";
+    }
+    //Это условие необх-0 для того, чтобы огранич-ь максимальные координаты нашего эл-та.
+});
+
+left.addEventListener('click', function (event) {
+    event.preventDefault();
+    let currentRight = parseInt(computed.right);
+
+    if (!currentRight) {
+        currentRight = 0;
+    }
+
+    if (currentRight > 0) {
+        items.style.right = currentRight - 100 + "px";// - это аналог items.style.right = ${currentRight - 100}px;
+    }
+});
+
+//2 способ реал-ии слайдера.
+const left = document.querySelector("#left");
+const right = document.querySelector("#right");
+const items = document.querySelector("#items");
+
+const minRight = 0;
+const maxRight = 600;
+const step = 100;
+let currentRight = 0;
+
+items.style.right = currentRight;
+
+right.addEventListener('click', function (event) {
+    event.preventDefault();
+    if (currentRight < maxRight) {
+        currentRight += step;
+        items.style.right = currentRight + "px";
+    }
+});
+
+left.addEventListener('click', function (event) {
+    event.preventDefault();
+    if (currentRight > minRight) {
+        currentRight -= step;
+        items.style.right = currentRight + "px";
+    }
+});
+
+//3 способ реал-ии слайдера.

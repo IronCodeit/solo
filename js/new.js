@@ -65,3 +65,88 @@ console.log(father.age);
 father.daughter = 'Dashka';
 console.log(father.daughter);
 
+//Задание 4.
+var human = { name: 'Dima', lastName: 'Maluda', age: 31 };
+function hello(human) {
+    var result = human;
+    return result;
+}
+let message = hello('Привет, меня зовут ' + human.name + ' ' + human.lastName + ' и мне ' + human.age);
+console.log(message);
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+//Задание 1-3.
+const element = document.createElement('div');
+const body = document.querySelector('body');
+document.body.appendChild(element);
+element.textContent = 'Этот элемент создан при помощи DOM API';
+
+const element2 = document.createElement('div');
+element2.className = 'inner';
+element2.textContent = 'Этот элемент тоже создан при помощи DOM API';
+element.appendChild(element2);
+element2.style.color = 'red';
+
+//Задание 4.
+const element = document.createElement('div');
+const body = document.querySelector('body');
+document.body.appendChild(element);
+element.textContent = 'Этот элемент создан при помощи DOM API';
+
+element.addEventListener('click', function () {
+    console.log('Этот текст говорит о том, что я всё сделал правильно');
+});
+
+//Задание 5.
+const element3 = document.createElement('a');
+element3.setAttribute('href', 'https://loftschool.com');
+const body = document.querySelector('body');
+element3.textContent = 'Сама ссылка';
+document.body.appendChild(element3);
+element3.style.textDecoration = 'none';
+element3.style.fontSize = '40px';
+element3.addEventListener('click', function (event) {
+    console.log('Я кликнул на ссылку ' + 'https://loftschool.com');
+    event.preventDefault();
+});
+
+//Задание 6.
+const input = document.createElement('input');
+const button = document.createElement('button');
+button.textContent = 'Go';
+const body = document.querySelector('body');
+document.body.appendChild(input);
+document.body.appendChild(button);
+button.addEventListener('click', function () {
+    console.log(input.value);
+});
+
+//Задание 7.
+const left = document.querySelector("#left");
+const right = document.querySelector("#right");
+const items = document.querySelector("#items");
+
+const minRight = 0;
+const maxRight = 600;
+const step = 100;
+let currentRight = 0;
+
+items.style.right = currentRight;
+
+right.addEventListener('click', function (event) {
+    event.preventDefault();
+    if (currentRight < maxRight) {
+        currentRight += step;
+        items.style.right = currentRight + "px";
+    }
+});
+
+left.addEventListener('click', function (event) {
+    event.preventDefault();
+    if (currentRight > minRight) {
+        currentRight -= step;
+        items.style.right = currentRight + "px";
+    }
+});
