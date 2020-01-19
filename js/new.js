@@ -124,6 +124,7 @@ button.addEventListener('click', function () {
 });
 
 //Задание 7.
+//1 способ реализации слайдера.
 const left = document.querySelector("#left");
 const right = document.querySelector("#right");
 const items = document.querySelector("#items");
