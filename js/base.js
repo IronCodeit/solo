@@ -642,3 +642,99 @@ for (let i = 0; i < teamItemLength; i++) {
         }
     });
 }
+
+
+
+/////////////////////////////////////////////////////////////////////////
+//Цикл for of
+
+/* let arr = [4, 7, 9];
+let allP = document.getElementsByTagName('p');
+let parag = document.querySelectorAll('p'); */
+
+//Способ перебора №1
+/* let arr = [4, 7, 9];
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+} */
+
+
+//Способ перебора №2
+/* let arr = [4, 7, 9];
+for (let key in arr) {
+    console.log(key);//Выведится на экран индексы 0 1 2.
+} */
+
+
+//Способ перебора №3
+/* let arr = [4, 7, 9];
+for (let key in arr) {
+    console.log(arr[key]);
+} */
+
+
+//Цикл for of предполагает перебор массива с пом. значений, а не индексов.
+
+//Способ перебора №3
+/* let arr = [4, 7, 9];
+for (let key of arr) {
+    console.log(key);//Выведутся на экран не индексы, а сами значения 4 7 9.
+} */
+
+
+/* let arr = [4, 7, 9];
+for (let key of arr) {
+    console.log(arr[key]);//Выведутся на экран undefined.
+} */
+
+
+/* let arr = [4, 7, 9];
+for (let item of arr) {
+    console.log(item);//Выведутся на экран undefined.
+} */
+//item - это элемент массива!
+
+
+/* console.log(allP); //Выведим html collection - т.е. коллекцию эл-ов.
+console.log(parag); //Выведим Nodelist - т.е. кллекцию узлов.
+console.log(allP.length); //Выведим 3.
+console.log(allP[1]); //Обращение по индексу.*/
+
+
+/* for (let i = 0; i < allP.length; i++) {
+    console.log(allP[i]);
+} */
+
+
+/* for (let key in allP) {
+    console.log(allP[key]);
+} */
+//данный цикл не подходит для перебора html эл-ов.
+
+
+/* for (let item of allP) {
+    console.log(item);
+} */
+
+
+/* for (let value of arr) {
+    value -= 1;
+    console.log(value);
+} *///Выведим 3 6 8.
+
+
+/* for (let i = 0; i < parag.length; i++) {
+    console.log(parag[i]);
+} */
+
+
+/* for (let key in parag) {
+    console.log(parag[key]);
+} */
+//данный цикл также не подходит для перебора html эл-ов.
+
+
+/* for (let item of parag) {
+    console.log(item);
+} */
+/////////////////////////////////////////////////////////////////////////

@@ -360,7 +360,7 @@ try {
 
 //ОТЛАДКА
 
-var button = document.querySelector('#myButton');
+/* var button = document.querySelector('#myButton');
 
 button.addEventListener('click', function () {
     var a = ['привет', 'LoftSchool', '!!!'];
@@ -368,7 +368,90 @@ button.addEventListener('click', function () {
         console.log(a[i]);
     }
 });
+ */
 
+//Задание1.
+/* function filter(input, than) {
+    let newArray = [];
+
+    for (let value of input) {
+        if (value > than) {
+            newArray.push(value);
+        }
+    }
+    return newArray;
+}
+
+var array = [12, 100, 34, 65, 10];
+var result = filter(array, 60);
+console.log(result); // [100, 65];
+result = filter(array, 20);
+console.log(result); // [100, 34, 65]; */
+
+//Задание2.
+function filter(input, than) {
+    if (!input.length) {
+        throw new Error('Переданный в input массив не должен быть пустым');
+    }
+    let newArray = [];
+
+    for (let value of input) {
+        if (!isFinite(value)) {
+            throw new Error('Переданное значение должно быть только числом');
+        } else if (value < 0) {
+            throw new Error('Переданное значение не должно быть отрицательным числом');
+        } else if (value > than) {
+            newArray.push(value);
+        }
+    }
+    return newArray;
+}
+
+var array = [12, 100, 34, 65, 10];
+var result = filter(array, 60);
+console.log(result); // [100, 65];
+result = filter(array, 20);
+console.log(result); // [100, 34, 65];
+
+let linkOne = document.querySelector('#linkone');
+let linkTwo = document.querySelector('#linktwo');
+let linkThree = document.querySelector('#linkthree');
+
+linkOne.addEventListener('click', function (e) {
+    e.preventDefault();
+    try {
+        filter([], 60);
+    }
+
+    catch (e) {
+        console.log(e.message);
+        alert(e.message);
+    }
+});
+
+linkTwo.addEventListener('click', function (e) {
+    e.preventDefault();
+    try {
+        filter(['Hello' + ' world'], 60);
+    }
+
+    catch (e) {
+        console.log(e.message);
+        alert(e.message);
+    }
+});
+
+linkThree.addEventListener('click', function (e) {
+    e.preventDefault();
+    try {
+        filter([-32], 60);
+    }
+
+    catch (e) {
+        console.log(e.message);
+        alert(e.message);
+    }
+});
 
 
 /* const loadButton = document.querySelector('#loadButton');
